@@ -1,0 +1,22 @@
+{
+	"name": "riskatlas",
+	"private": true,
+	"packageManager": "pnpm@11.8.0",
+	"scripts": {
+		"build": "pnpm -r build",
+		"build:web": "pnpm --filter @riskatlas/web build",
+		"check": "pnpm -r check",
+		"dev": "pnpm -r --parallel dev",
+		"dev:web": "pnpm --filter @riskatlas/web dev",
+		"format": "pnpm -r format",
+		"lint": "pnpm -r lint",
+		"local:cron": "pnpm --filter @riskatlas/cron local",
+		"typecheck": "pnpm -r typecheck",
+		"deploy:cron": "pnpm --filter @riskatlas/d1 build && pnpm wrangler deploy --config apps/cron/wrangler.jsonc"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "catalog:",
+		"typescript": "catalog:",
+		"wrangler": "catalog:"
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.4.15/schema.json",
+	"root": false,
+	"extends": ["../../biome.json"],
+	"files": {
+		"includes": [
+			"**/src/**/*",
+			"**/.vscode/**/*",
+			"**/index.html",
+			"**/vite.config.ts",
+			"!**/.cta.json",
+			"!**/package.json",
+			"!**/package-lock.json",
+			"!**/public/**/*",
+			"!**/tsconfig.json",
+			"!**/src/routeTree.gen.ts",
+			"!**/src/styles.css"
+		]
+	}
+}

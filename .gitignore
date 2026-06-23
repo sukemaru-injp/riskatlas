@@ -1,0 +1,28 @@
+# dependencies
+node_modules/
+dist/
+drizzle/
+!packages/d1/drizzle/
+!packages/d1/drizzle/**
+.pnpm-store/
+.tanstack/
+.wrangler/
+wrangler.jsonc
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env*.local
+.envrc
+
+# typescript
+*.tsbuildinfo
+
+/.serena

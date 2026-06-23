@@ -1,0 +1,23 @@
+{
+	"name": "@riskatlas/cron",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "tsc -p tsconfig.json",
+		"dev": "pnpm local",
+		"format": "biome format --write",
+		"lint": "biome lint --write",
+		"check": "biome check --write",
+		"local": "tsx src/local.ts",
+		"typecheck": "tsc -p tsconfig.json --noEmit"
+	},
+	"dependencies": {
+		"@riskatlas/d1": "workspace:*",
+		"fast-xml-parser": "5.8.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "catalog:",
+		"tsx": "catalog:",
+		"typescript": "catalog:"
+	}
+}
