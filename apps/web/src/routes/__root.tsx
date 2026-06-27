@@ -52,7 +52,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			<head>
 				<HeadContent />
 			</head>
-			<body>
+			<body suppressHydrationWarning>
 				<div className="root">{children}</div>
 				<Scripts />
 			</body>

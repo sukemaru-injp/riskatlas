@@ -1,12 +1,11 @@
-import type { Button as BaseButtonType } from "@base-ui/react/button";
-import { Button as BaseButton } from "@base-ui/react/button";
+import type { ButtonHTMLAttributes } from "react";
 
 import styles from "./button.module.css";
 
 type ButtonVariant = "primary" | "surface";
 type ButtonSize = "md" | "lg";
 
-type ButtonProps = BaseButtonType.Props & {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 	variant?: ButtonVariant;
 	size?: ButtonSize;
 };
@@ -18,7 +17,7 @@ export function Button({
 	...props
 }: ButtonProps) {
 	return (
-		<BaseButton
+		<button
 			className={[styles.button, styles[variant], styles[size], className]
 				.filter(Boolean)
 				.join(" ")}

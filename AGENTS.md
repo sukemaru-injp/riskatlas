@@ -28,6 +28,34 @@ Run commands from the repository root unless noted.
 
 For cron-only work, use `pnpm --filter @riskatlas/cron <script>`.
 
+## Agent Rules & Skills
+
+This repository provides local agent instructions under `.agents/`. Agents should
+read and apply these files before making relevant implementation changes.
+
+Rules:
+
+- `.agents/rules/00-basic-rules.md`: project scope, quality gates, dependency
+  management, environment variable handling, and module responsibilities.
+- `.agents/rules/01-cloudflare-workers-best-practices.md`: Cloudflare Workers
+  configuration, request handling, architecture, observability, security, and
+  testing practices.
+
+Skills:
+
+- `.agents/skills/modern-web-guidance/SKILL.md`: use before implementing
+  frontend, HTML, CSS, or client-side JavaScript features. Prefer the local
+  guides under `.agents/skills/modern-web-guidance/guides/` when available.
+- `.agents/skills/cloudflare/SKILL.md`: use for Cloudflare platform work,
+  including Workers, D1, storage, routing, bindings, security, and deployment
+  architecture.
+- `.agents/skills/wrangler/SKILL.md`: use before running or changing Wrangler
+  commands, `wrangler.jsonc`, bindings, generated types, or deployment scripts.
+
+When a task matches one of these rules or skills, use the repository-local
+instruction first and reflect its guidance in the implementation and
+verification steps.
+
 ## Coding Style & Naming Conventions
 
 Use TypeScript for application code. The repository uses Biome for linting and formatting, with tab indentation, double quotes, semicolons, and trailing commas disabled. Keep exported functions explicit and prefer small modules with clear responsibility.

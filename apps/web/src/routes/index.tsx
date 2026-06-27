@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { ClientOnly, createFileRoute } from "@tanstack/react-router";
 
 import { AutoComplete } from "#/components/auto-complete";
 import { Button } from "#/components/button";
@@ -9,6 +9,14 @@ export const Route = createFileRoute("/")({ component: App });
 
 function App() {
 	return (
+		<ClientOnly>
+			<HomeContent />
+		</ClientOnly>
+	);
+}
+
+function HomeContent() {
+	return (
 		<div className={styles.homeShell}>
 			<div className={styles.homeCopy}>
 				<h1>旅先のリスクを事前に確認する</h1>
@@ -17,7 +25,7 @@ function App() {
 				</p>
 			</div>
 
-			<form action="/" className={styles.searchForm} method="get">
+			<form action="/search" className={styles.searchForm} method="get">
 				<AutoComplete
 					label="国名"
 					name="country"
