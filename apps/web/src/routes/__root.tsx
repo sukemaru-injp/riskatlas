@@ -1,6 +1,13 @@
-import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import {
+	createRootRoute,
+	HeadContent,
+	Outlet,
+	Scripts
+} from "@tanstack/react-router";
 
+import { Header } from "#/components/header";
 import appCss from "../styles.css?url";
+import styles from "./root.module.css";
 
 export const Route = createRootRoute({
 	head: () => ({
@@ -23,9 +30,21 @@ export const Route = createRootRoute({
 			}
 		]
 	}),
+	component: RootLayout,
 	notFoundComponent: () => null,
 	shellComponent: RootDocument
 });
+
+function RootLayout() {
+	return (
+		<>
+			<Header />
+			<main className={styles.homePage}>
+				<Outlet />
+			</main>
+		</>
+	);
+}
 
 function RootDocument({ children }: { children: React.ReactNode }) {
 	return (
