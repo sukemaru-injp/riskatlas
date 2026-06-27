@@ -1,0 +1,36 @@
+.header {
+	position: sticky;
+	z-index: 20;
+	top: 0;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	padding: 14px max(20px, calc((100vw - 960px) / 2));
+	background: transparent;
+}
+
+.brand {
+	width: fit-content;
+	padding: 6px 10px;
+	border: 1px solid rgba(23, 33, 29, 0.18);
+	border-radius: 999px;
+	color: #31584d;
+	font-size: 0.875rem;
+	font-weight: 700;
+	line-height: 1.2;
+	text-decoration: none;
+	background: rgba(255, 255, 255, 0.58);
+}
+
+.brand:focus-visible {
+	outline: 3px solid #2f6fed;
+	outline-offset: 3px;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
