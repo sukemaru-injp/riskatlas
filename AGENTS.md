@@ -51,6 +51,8 @@ Skills:
   architecture.
 - `.agents/skills/wrangler/SKILL.md`: use before running or changing Wrangler
   commands, `wrangler.jsonc`, bindings, generated types, or deployment scripts.
+- `.agents/skills/manage-task/SKILL.md`: use for tone ticket creation,
+  status updates, taskId-based work intake, and ticket closure coordination.
 
 When a task matches one of these rules or skills, use the repository-local
 instruction first and reflect its guidance in the implementation and

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manage Task"
+  short_description: "Manage tone tickets for project work."
+  default_prompt: "Use tone to inspect, create, update, and close project tickets while coordinating codebase investigation and verification."

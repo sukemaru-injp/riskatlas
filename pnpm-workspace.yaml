@@ -3,13 +3,13 @@ packages:
   - "packages/*"
 
 allowBuilds:
-    esbuild: true
-    sharp: true
-    workerd: true
+  esbuild: true
+  sharp: true
+  workerd: true
 
 catalog:
   "@biomejs/biome": 2.4.15
   "@types/node": 22.19.19
   tsx: 4.22.3
   typescript: 6.0.3
-  wrangler: 4.103.0
+  wrangler: 4.105.0
