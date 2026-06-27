@@ -102,6 +102,7 @@ pnpm wrangler deploy --config apps/cron/wrangler.jsonc
 デプロイ後は Cloudflare Dashboard で `riskatlas-cron` Worker を開き、D1 binding
 `DB` と Cron Trigger `0 */2 * * *` が設定されていることを確認します。
 Cloudflare Cron Triggers は UTC で評価されます。
+Worker Logs は `apps/cron/wrangler.jsonc` の `observability.logs` で有効化しています。
 
 ## データソース
 

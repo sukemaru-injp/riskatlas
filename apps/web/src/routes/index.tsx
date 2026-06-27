@@ -1,8 +1,8 @@
 import { Button } from "@base-ui/react/button";
-import { Field } from "@base-ui/react/field";
-import { Input } from "@base-ui/react/input";
 import { createFileRoute } from "@tanstack/react-router";
 
+import { AutoComplete } from "#/components/auto-complete";
+import { COUNTRY_OPTIONS } from "#/constants/countries";
 import styles from "./root.module.css";
 
 export const Route = createFileRoute("/")({ component: App });
@@ -20,14 +20,12 @@ function App() {
 				</div>
 
 				<form action="/" className={styles.searchForm} method="get">
-					<Field.Root className={styles.searchField}>
-						<Field.Label className={styles.searchLabel}>国名</Field.Label>
-						<Input
-							className={styles.searchInput}
-							name="country"
-							placeholder="例: タイ、フランス"
-						/>
-					</Field.Root>
+					<AutoComplete
+						label="国名"
+						name="country"
+						options={COUNTRY_OPTIONS}
+						placeholder="例: タイ、フランス"
+					/>
 
 					<Button className={styles.searchButton} type="submit">
 						検索
