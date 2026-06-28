@@ -1,4 +1,5 @@
 import { runScheduledFetch } from "./handler";
+import { logger } from "./logger";
 import type { Env, ScheduledController } from "./types";
 
 const controller = {
@@ -11,4 +12,4 @@ const env = {} satisfies Env;
 
 const result = await runScheduledFetch({ controller, env });
 
-console.log(JSON.stringify(result, null, 2));
+logger.info({ result }, "MOFA new arrival local run completed");

@@ -9,6 +9,7 @@ import {
 	sleep
 } from "@riskatlas/d1";
 import { XMLParser } from "fast-xml-parser";
+import { logger } from "./logger";
 import type { Env, ScheduledController } from "./types";
 
 const DEFAULT_NEW_ARRIVAL_FEED_URL =
@@ -126,9 +127,7 @@ export async function runScheduledFetch(
 		skippedInformationCount: persistenceStats.skippedInformationCount
 	};
 
-	console.log("MOFA new arrival feed processed", {
-		...result
-	});
+	logger.info(result, "MOFA new arrival feed processed");
 
 	return result;
 }
@@ -161,11 +160,14 @@ async function persistInformation(
 
 		if (existingInformation) {
 			stats.skippedInformationCount += 1;
-			console.log("MOFA new arrival information skipped", {
-				code: item.keyCd,
-				id: existingInformation.id,
-				name: item.infoName
-			});
+			logger.info(
+				{
+					code: item.keyCd,
+					id: existingInformation.id,
+					name: item.infoName
+				},
+				"MOFA new arrival information skipped"
+			);
 			continue;
 		}
 
@@ -186,11 +188,14 @@ async function persistInformation(
 			toCreateInformationInput(item, areaId, countryId)
 		);
 		stats.createdInformationCount += 1;
-		console.log("MOFA new arrival information created", {
-			code: createdInformation.code,
-			id: createdInformation.id,
-			name: createdInformation.infoName
-		});
+		logger.info(
+			{
+				code: createdInformation.code,
+				id: createdInformation.id,
+				name: createdInformation.infoName
+			},
+			"MOFA new arrival information created"
+		);
 		await sleep(PERSISTENCE_INTERVAL_MS);
 	}
 
@@ -226,11 +231,14 @@ async function findOrCreateArea(
 	const existingArea = cache.findAreaByCode(code);
 
 	if (existingArea) {
-		console.log("MOFA new arrival area skipped", {
-			code,
-			id: existingArea.id,
-			name: existingArea.name
-		});
+		logger.info(
+			{
+				code,
+				id: existingArea.id,
+				name: existingArea.name
+			},
+			"MOFA new arrival area skipped"
+		);
 		return existingArea.id;
 	}
 
@@ -240,11 +248,14 @@ async function findOrCreateArea(
 	});
 	cache.putArea(createdArea);
 	stats.createdAreaCount += 1;
-	console.log("MOFA new arrival area created", {
-		code: createdArea.code,
-		id: createdArea.id,
-		name: createdArea.name
-	});
+	logger.info(
+		{
+			code: createdArea.code,
+			id: createdArea.id,
+			name: createdArea.name
+		},
+		"MOFA new arrival area created"
+	);
 
 	return createdArea.id;
 }
@@ -263,11 +274,14 @@ async function findOrCreateCountry(
 	const existingCountry = cache.findCountryByCode(code);
 
 	if (existingCountry) {
-		console.log("MOFA new arrival country skipped", {
-			code,
-			id: existingCountry.id,
-			name: existingCountry.name
-		});
+		logger.info(
+			{
+				code,
+				id: existingCountry.id,
+				name: existingCountry.name
+			},
+			"MOFA new arrival country skipped"
+		);
 		return existingCountry.id;
 	}
 
@@ -277,11 +291,14 @@ async function findOrCreateCountry(
 	});
 	cache.putCountry(createdCountry);
 	stats.createdCountryCount += 1;
-	console.log("MOFA new arrival country created", {
-		code: createdCountry.code,
-		id: createdCountry.id,
-		name: createdCountry.name
-	});
+	logger.info(
+		{
+			code: createdCountry.code,
+			id: createdCountry.id,
+			name: createdCountry.name
+		},
+		"MOFA new arrival country created"
+	);
 
 	return createdCountry.id;
 }
