@@ -28,6 +28,8 @@ export function Footer() {
 						<a
 							className={styles.sourceLink}
 							href="https://www.ezairyu.mofa.go.jp/html/opendata/index.html"
+							rel="noreferrer"
+							target="_blank"
 						>
 							外務省 海外安全情報 オープンデータ
 						</a>
