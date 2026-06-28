@@ -5,6 +5,7 @@ import {
 	Scripts
 } from "@tanstack/react-router";
 
+import { Footer } from "#/components/footer";
 import { Header } from "#/components/header";
 import appCss from "../styles.css?url";
 import styles from "./root.module.css";
@@ -42,12 +43,13 @@ export const Route = createRootRoute({
 
 function RootLayout() {
 	return (
-		<>
+		<div className={styles.appShell}>
 			<Header />
 			<main className={styles.homePage}>
 				<Outlet />
 			</main>
-		</>
+			<Footer />
+		</div>
 	);
 }
 

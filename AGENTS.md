@@ -28,6 +28,9 @@ Run commands from the repository root unless noted.
 
 For cron-only work, use `pnpm --filter @riskatlas/cron <script>`.
 
+When an agent starts a development server only for verification, it should stop
+that server after the task is complete and before handing off the final result.
+
 ## Agent Rules & Skills
 
 This repository provides local agent instructions under `.agents/`. Agents should

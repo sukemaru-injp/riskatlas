@@ -1,11 +1,17 @@
-.homePage {
-	min-height: calc(100vh - 72px);
+.appShell {
+	min-height: 100dvh;
 	display: grid;
-	place-items: center;
-	padding: 28px 20px 48px;
+	grid-template-rows: auto 1fr auto;
 	background:
 		linear-gradient(135deg, rgba(20, 80, 66, 0.1), transparent 42%),
 		linear-gradient(315deg, rgba(182, 92, 47, 0.12), transparent 38%), #f4f7f2;
+}
+
+.homePage {
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	padding: 28px 20px 48px;
 }
 
 .homeShell {
@@ -139,6 +145,25 @@
 	background: rgba(255, 255, 255, 0.76);
 }
 
+.placeholderPage {
+	width: min(100%, 880px);
+	display: grid;
+	gap: 12px;
+	align-self: start;
+	padding-block: 56px;
+}
+
+.placeholderPage h1 {
+	font-size: 2.5rem;
+	line-height: 1.1;
+	font-weight: 800;
+	letter-spacing: 0;
+}
+
+.placeholderPage p:last-child {
+	color: #46524d;
+}
+
 @media (max-width: 760px) {
 	.homePage {
 		place-items: start center;
@@ -163,6 +188,14 @@
 	}
 
 	.searchHeader h1 {
+		font-size: 2rem;
+	}
+
+	.placeholderPage {
+		padding-block: 40px;
+	}
+
+	.placeholderPage h1 {
 		font-size: 2rem;
 	}
 
